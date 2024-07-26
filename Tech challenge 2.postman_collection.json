@@ -1,0 +1,147 @@
+{
+	"info": {
+		"_postman_id": "522ba0dd-0f15-46f1-8739-49ab18d8dbe4",
+		"name": "Tech challenge 2",
+		"description": "Documentação da API do Tech Challenge da segunda fase da PósTech FIAP, grupo 15:\n\nAlunos: Matheus Toshio Mizuta, Felipe Rodrigues.\n\nNesta documentação vamos estar passando pelo CRUD criado para o Tech challenge, com alguns dos métodos que foram criados para o trabalho.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "37085919"
+	},
+	"item": [
+		{
+			"name": "Encontrar_Livros",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:3000/livros",
+				"description": "Esta API permite o usuário buscar por todos os livros que estão no banco de dados"
+			},
+			"response": []
+		},
+		{
+			"name": "Encontrar_Livros_Por_Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:3000/livros/<id>",
+				"description": "Esta API permite que o usuário realize uma busca por um Livro em específico.\n\nPara realizar a busca basta colocar o valor do id do Livro no local indicado."
+			},
+			"response": []
+		},
+		{
+			"name": "Encontrar_Autores",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:3000/autores",
+				"description": "Esta API permite que o usuário busque por todos os autores que se encontram no banco de dados."
+			},
+			"response": []
+		},
+		{
+			"name": "Encontrar_Autores_ Por_Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:3000/autores/<id>",
+				"description": "Esta API permite que o usuário realize uma busca por um Autor em específico.\n\nPara realizar a busca basta colocar o valor do id do autor no local indicado."
+			},
+			"response": []
+		},
+		{
+			"name": "Criar_Livros",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n \"titulo\": \"Harry Potter e a Pedra Filosofal\",\r\n \"editora\": \"Rocco\",\r\n \"autor\": \"66a26b7311ca193ffbf1d4be\",\r\n \"preco\": \"36.00\",\r\n \"paginas\": \"264\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:3000/livros",
+				"description": "Esta API permite que o usuário adicione um livro no banco de dados, os parâmetros utilizados na criação de um livro são:\n\n\"título\": título da obra é um campo obrigatório e aceita variáveis do tipo String;\n\n\"editora\": editora da obra, aceita variáveis do tipo String;\n\n\"preco\": preço da obra, aceita variáveis do tipo Number;\n\n\"paginas\": quantidade de páginas da obra e aceita variáveis do tipo Number.\n\n\"autor\": autor da obra, para incluir o autor da obra na criação do livro, deve se primeiro criar o autor, pegar o valor de seu (id) e incluir após o parâmetro da seguinte maneira: \"autor\" : \"(id)\"\n\nPara realizar a criação utilizamos um \"corpo\" (body) escrito em JSON para fazer as requisições como no exemplo abaixo:"
+			},
+			"response": []
+		},
+		{
+			"name": "Criar_Autores",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\" :\"Aluísio Azevedo\",\r\n    \"nacionalidade\": \"Brasileiro\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:3000/autores",
+				"description": "Esta API permite ao usuário Criar Novos autores dentro do banco de dados.\n\nOs parâmetros utilizados são:\n\n\"nome\": nome do autor, variável tipo String e obrigatória;\n\n\"nacionalidade\": nacionalidade do autor, variável tipo String.\n\ntambém é criado um valor de (id) associado ao autor, que deve ser utilizado na hora de relacionar o Autor com o livro, vide explicação na seção Criar_Livros.\n\nPara realizar a criação utilizamos um \"corpo\" (body) escrito em JSON para fazer as requisições como no exemplo abaixo:"
+			},
+			"response": []
+		},
+		{
+			"name": "Modificar_Livros",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"titulo\": \"Harry Potter e o Cálice de Fogo\",\r\n    \"paginas\": \"636\",\r\n    \"preco\": \"63.68\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:3000/livros/<id>",
+				"description": "Esta API permite ao usuário que modifique livros existentes no banco de dados.\n\nPara modificar um parâmetro utilizamos um body em JSON, precisamos colocar o (id) do Livro a ser modificado na URL, então basta colocar o nome do parâmetro e o valor a ser modificado entre aspas, exemplos abaixo:"
+			},
+			"response": []
+		},
+		{
+			"name": "Modificar_Autores",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\": \"Machado de Assis\",\r\n    \"nacionalidade\": \"Brasileiro\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:3000/autores/<id>",
+				"description": "Esta API permite que o usuário realize modificações nos autores existentes no banco de dados.\n\nPara modificar um parâmetro utilizamos um body em JSON, precisamos colocar o (id) do Autor a ser modificado na URL, então basta colocar o nome do parâmetro e o valor a ser modificado entre aspas, exemplos abaixo:"
+			},
+			"response": []
+		},
+		{
+			"name": "Deletar_livros",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "localhost:3000/livros/<id>",
+				"description": "Esta API permite ao usuário deletar livros existentes no banco de dados.\n\nPara que o livro seja deletado basta colocar o valor do (id) do livro a ser deletado no espaço indicado."
+			},
+			"response": []
+		},
+		{
+			"name": "Deletar_Autores",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "localhost:3000/autores/<id>",
+				"description": "Esta API permite ao usuário deletar livros existentes no banco de dados.\n\nPara que o livro seja deletado basta colocar o valor do (id) do autor a ser deletado no espaço indicado."
+			},
+			"response": []
+		}
+	]
+}

@@ -4,6 +4,7 @@ import livro from "../models/livro.js"; // Importa o modelo de livro baseado no 
 class LivroController{
     //static é um método que podemos utilizar sem instanciar.
     //método para listar todos os livros presentes no database.
+    //método get "geral"
     static async listarLivros (req, res) {
         try{ //método try catch para tratamento de erros.
             const listaLivros = await livro.find({});
@@ -15,6 +16,7 @@ class LivroController{
     }
 
     //método para cadastrar um novo livro no database.
+    //método Post
     static async cadastrarLivro( req, res) {
         const novoLivro = req.body;        
         try {
